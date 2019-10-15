@@ -1,6 +1,8 @@
 # react-node
 
-Following tutorial in (here)[https://sweetcode.io/hello-world-create-react-app-java-script/]
+Following tutorial in [here](https://sweetcode.io/hello-world-create-react-app-java-script/)
+
+Also, using [highcharts react wrapper](https://www.highcharts.com/blog/post/highcharts-wrapper-for-react-101/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
