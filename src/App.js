@@ -1,6 +1,22 @@
 import React from 'react';
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
 import logo from './logo.svg';
 import './App.css';
+
+const options = {
+  chart: {
+    type: 'spline'
+  },
+  title: {
+    text: 'My chart'
+  },
+  series: [
+    {
+      data: [1, 2, 1, 4, 3, 6]
+    }
+  ]
+};
 
 function App() {
   return (
@@ -19,6 +35,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <HighchartsReact highcharts={Highcharts} options={options} />
     </div>
   );
 }
