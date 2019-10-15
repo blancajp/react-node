@@ -4,6 +4,10 @@ import HighchartsReact from 'highcharts-react-official';
 import logo from './logo.svg';
 import './App.css';
 
+// Load Highcharts modules
+require('highcharts/modules/data')(Highcharts);
+require('highcharts/modules/exporting')(Highcharts);
+
 const options = {
   chart: {
     type: 'spline'
@@ -11,11 +15,11 @@ const options = {
   title: {
     text: 'My chart'
   },
-  series: [
-    {
-      data: [1, 2, 1, 4, 3, 6]
-    }
-  ]
+  data: {
+    rowsURL: 'https://5d9b9f3e686ed000144d2355.mockapi.io/chart1',
+    firstRowAsNames: false,
+    enablePolling: false
+  }
 };
 
 function App() {
