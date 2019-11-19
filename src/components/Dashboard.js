@@ -16,7 +16,7 @@ class Dashboard extends React.Component {
     setSplineChart(chart) {
         this.setState({
             splineChart: chart,
-            availableCharts: this.state.availableCharts,
+            availableCharts: this.state.availableCharts
         });
     }
     loadOptions() {
