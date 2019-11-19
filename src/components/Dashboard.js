@@ -7,14 +7,34 @@ class Dashboard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            splineChart: ''
+            splineChart: '',
+            availableCharts: [],
         }
         this.setSplineChart = this.setSplineChart.bind(this);
+        this.loadOptions = this.loadOptions.bind(this);
     }
     setSplineChart(chart) {
         this.setState({
-            splineChart: chart
+            splineChart: chart,
+            availableCharts: this.state.availableCharts,
         });
+    }
+    loadOptions() {
+        fetch('https://5d9b9f3e686ed000144d2355.mockapi.io/charts')
+            .then(response => response.json())
+            .then(data => {
+                const entries = data.results.map(entry => ({
+                    text: entry.text,
+                    value: entry.value,
+                }));
+                this.setState({
+                    splineChart: this.state.splineChart,
+                    availableCharts: entries,
+                });
+            });
+    }
+    componentDidMount() {
+        this.loadOptions();
     }
     render() {
         let chart;
@@ -24,8 +44,9 @@ class Dashboard extends React.Component {
         return (
             <div>
                 <Select defaultValue="Choose.." style={{ width: 120 }} onChange={this.setSplineChart}>
-                    <Select.Option value="chart1">Chart 1</Select.Option>
-                    <Select.Option value="chart2">Chart 2</Select.Option>
+                    {this.state.availableCharts.map(data => (
+                        <Select.Option key={data.value}>{data.text}</Select.Option>
+                    ))}
                 </Select>
                 {chart}
             </div>
