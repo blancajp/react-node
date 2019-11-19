@@ -22,11 +22,11 @@ class Dashboard extends React.Component {
     loadOptions() {
         fetch('https://5d9b9f3e686ed000144d2355.mockapi.io/charts')
             .then(response => response.json())
-            .then(data => {
-                const entries = data.results.map(entry => ({
+            .then(data => data.results.map(entry => ({
                     text: entry.text,
                     value: entry.value,
-                }));
+                })))
+            .then(entries => {
                 this.setState({
                     splineChart: this.state.splineChart,
                     availableCharts: entries,
