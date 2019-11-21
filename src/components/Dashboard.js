@@ -1,6 +1,7 @@
 import React from 'react';
 import SplineChart from './SplineChart';
 import {Select} from 'antd';
+import {buildUrl} from '../utils/url'
 import 'antd/dist/antd.css';
 
 class Dashboard extends React.Component {
@@ -20,7 +21,7 @@ class Dashboard extends React.Component {
         });
     }
     loadOptions() {
-        fetch('https://5d9b9f3e686ed000144d2355.mockapi.io/charts')
+        fetch(buildUrl('https://5d9b9f3e686ed000144d2355.mockapi.io', ['charts'], []))
             .then(response => response.json())
             .then(data => data.results.map(entry => ({
                     text: entry.text,
