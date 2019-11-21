@@ -7,6 +7,9 @@ require('highcharts/modules/data')(Highcharts);
 require('highcharts/modules/exporting')(Highcharts);
 
 class SplineChart extends React.Component {
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps.chart != this.props.chart;
+    }
     render() {
         this.options = {
             chart: {
