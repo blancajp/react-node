@@ -20,7 +20,7 @@ class SplineChart extends React.Component {
                 text: 'My chart'
             },
             data: {
-                rowsURL: buildUrl('https://5d9b9f3e686ed000144d2355.mockapi.io', [this.props.chart], [{name: 'param1', value: 'value1'}]),
+                rowsURL: buildUrl(`https://5d9b9f3e686ed000144d2355.mockapi.io/${this.props.chart}`, [{name: 'param1', value: 'value1'}]),
                 firstRowAsNames: false,
                 enablePolling: false
             }

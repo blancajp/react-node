@@ -21,9 +21,9 @@ class Dashboard extends React.Component {
         });
     }
     loadOptions() {
-        fetch(buildUrl('https://5d9b9f3e686ed000144d2355.mockapi.io', ['charts'], []))
+        fetch(buildUrl('https://5d9b9f3e686ed000144d2355.mockapi.io/charts', []))
             .then(response => response.json())
-            .then(data => data.results.map(entry => ({
+            .then(data => data.map(entry => ({
                     text: entry.text,
                     value: entry.value,
                 })))
