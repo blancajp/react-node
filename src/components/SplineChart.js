@@ -27,7 +27,7 @@ class SplineChart extends React.Component {
         };
         return (
             <div>
-                <HighchartsReact highcharts={Highcharts} options={this.options} updateArgs={true} />
+                <HighchartsReact immutable={true} highcharts={Highcharts} options={this.options} updateArgs={true} />
             </div>
         )
     }
